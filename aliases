@@ -1,3 +1,6 @@
+# Vim
+alias vim=nvim
+
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
