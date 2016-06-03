@@ -17,6 +17,8 @@
   autocrlf = input
 [merge]
   ff = only
+	conflictstyle = diff3
+	tool = vimdiff
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -25,3 +27,7 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
+[mergetool]
+	prompt = false
+[diff]
+	tool = vimdiff
