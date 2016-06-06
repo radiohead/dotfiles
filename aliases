@@ -18,5 +18,11 @@ alias s="rspec"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+# Aliases
+alias zshconfig="vim ~/.zshrc.local"
+alias vimconfig="vim ~/.vimrc.local"
+alias tmuxconfig="vim ~/.tmux.conf.local"
+alias rjw="rake jobs:clear && rake jobs:work"
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

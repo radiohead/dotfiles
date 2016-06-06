@@ -1,9 +1,11 @@
 [init]
   templatedir = ~/.git_template
+[pull]
+  rebase = true
 [push]
-  default = current
-[color]
-  ui = auto
+  default = simple
+[difftool]
+  prompt = false
 [alias]
   aa = add --all
   ap = add --patch
@@ -17,10 +19,13 @@
   autocrlf = input
 [merge]
   ff = only
-	conflictstyle = diff3
-	tool = vimdiff
+  conflictstyle = diff3
+  tool = vimdiff
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
+[color]
+  ui = auto
 [fetch]
   prune = true
 [rebase]
@@ -28,6 +33,6 @@
 [include]
   path = ~/.gitconfig.local
 [mergetool]
-	prompt = false
+  prompt = false
 [diff]
-	tool = vimdiff
+  tool = vimdiff
