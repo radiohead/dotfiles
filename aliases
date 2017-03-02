@@ -1,12 +1,10 @@
-# Vim
-alias vim=nvim
-
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
+alias ag='ag --path-to-agignore ~/.agignore'
 
 # Bundler
 alias b="bundle"
@@ -19,10 +17,9 @@ alias s="rspec"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Aliases
-alias zshconfig="vim ~/.zshrc.local"
-alias vimconfig="vim ~/.vimrc.local"
-alias tmuxconfig="vim ~/.tmux.conf.local"
-alias rjw="rake jobs:clear && rake jobs:work"
+alias zshconfig="nvim ~/.zshrc.local"
+alias vimconfig="nvim ~/.vimrc.local"
+alias tmuxconfig="nvim ~/.tmux.conf.local"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

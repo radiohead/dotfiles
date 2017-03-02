@@ -1,16 +1,17 @@
 " Leader
 let mapleader = " "
 
-set backspace=2   " Backspace deletes like most programs in insert mode
+set backspace=2       " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile        " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
+set ruler             " show the cursor position all the time
+set showcmd           " display incomplete commands
+set incsearch         " do incremental searching
+set laststatus=2      " Always display the status line
+set autowrite         " Automatically :write before running commands
+set clipboard=unnamed " Fix Sierra quirks
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -68,7 +69,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -129,6 +130,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Better CTags navigation
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
@@ -144,6 +149,73 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Common
+set vb                  " Disable audio bell
+set autoread            " Reload files on change
+set clipboard=unnamed   " Use system clipboard
+set relativenumber      " Always use relative numbers
+set noshowmode
+set noruler
+set noshowcmd
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/tmp/*,*/node_modules/*
+
+" Performance (especially in tmux)
+set lazyredraw
+set ttyfast
+
+" Search
+ca Ag Ag!
+
+" Ruler
+set colorcolumn=120
+
+" Colors
+set background=dark
+colorscheme tomorrow-night
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
+
+" Keybinds
+nnoremap <C-p> :CtrlP<CR>
+vnoremap <C-r> :%s/<c-r>=GetVisual()<cr>/
+nnoremap ft :CtrlPBufTag<CR>
+nnoremap fi :Ag! '<cword>'.<CR>
+nnoremap gs :Gstatus<CR>
+nnoremap gc :Gcommit<CR>
+nnoremap gbr :Gbrowse<CR>
+nnoremap gco :Git checkout
+vnoremap // y/<C-R>"<CR>
+nmap ,cs :let @*=expand("%")<CR>
+nmap ,cl :let @*=expand("%:p")<CR>
+
+" Spaces and indents
+let g:indentLine_color_term = 239
+
+" Airline
+let g:airline_theme='tomorrow'
+
+" Language-specifics
+" Ruby
+au FileType ruby set iskeyword+=?
+au FileType ruby set iskeyword+=!
+au FileType ruby nnoremap nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
+au FileType ruby nnoremap <leader>fc :Ag! 'class <cword>'.<CR>
+
+" Javascript
+let g:jsx_ext_required = 0
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

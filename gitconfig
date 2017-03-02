@@ -14,16 +14,16 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  br = branch
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
 [merge]
   ff = only
   conflictstyle = diff3
-  tool = vimdiff
+  tool = fugitive
 [commit]
   template = ~/.gitmessage
-  gpgsign = true
 [color]
   ui = auto
 [fetch]
@@ -34,5 +34,5 @@
   path = ~/.gitconfig.local
 [mergetool]
   prompt = false
-[diff]
-  tool = vimdiff
+[mergetool "fugitive"]
+  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
