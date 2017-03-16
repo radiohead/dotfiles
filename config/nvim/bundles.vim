@@ -56,6 +56,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-rbenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'mkitt/tabline.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
