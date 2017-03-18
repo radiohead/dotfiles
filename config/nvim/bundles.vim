@@ -57,6 +57,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-rbenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'mkitt/tabline.vim'
+Plug 'digitaltoad/vim-pug'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

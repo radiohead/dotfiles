@@ -1,17 +1,31 @@
 " Leader
 let mapleader = " "
 
-set backspace=2       " Backspace deletes like most programs in insert mode
+set backspace=2            " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
-set noswapfile        " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile             " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
-set ruler             " show the cursor position all the time
-set showcmd           " display incomplete commands
-set incsearch         " do incremental searching
-set laststatus=2      " Always display the status line
-set autowrite         " Automatically :write before running commands
-set clipboard=unnamed " Fix Sierra quirks
+set ruler                  " show the cursor position all the time
+set showcmd                " display incomplete commands
+set incsearch              " do incremental searching
+set laststatus=2           " Always display the status line
+set autowrite              " Automatically :write before running commands
+set clipboard=unnamed      " Fix Sierra quirks
+set clipboard+=unnamedplus "
+set relativenumber         " Always use relative numbers
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -172,7 +186,7 @@ set colorcolumn=120
 
 " Colors
 set background=dark
-colorscheme tomorrow-night
+colorscheme Tomorrow-Night
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
