@@ -58,6 +58,9 @@ Plug 'tpope/vim-rbenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'mkitt/tabline.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
