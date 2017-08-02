@@ -225,7 +225,7 @@ let g:airline_theme='tomorrow'
 " Ruby
 au FileType ruby set iskeyword+=?
 au FileType ruby set iskeyword+=!
-au FileType ruby nnoremap nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
+au FileType ruby nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
 au FileType ruby nnoremap <leader>fc :Ag! 'class <cword>'.<CR>
 
 " Javascript

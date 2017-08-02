@@ -53,6 +53,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-rbenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
@@ -61,6 +62,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'rhysd/vim-gfm-syntax'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
