@@ -51,6 +51,9 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# profile
+[[ -f ~/.profile ]] && source ~/.profile
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
