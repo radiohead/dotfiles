@@ -1,17 +1,17 @@
 " Leader
 let mapleader = " "
 
-set backspace=2            " Backspace deletes like most programs in insert mode
+set backspace=2       " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
-set noswapfile             " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile        " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
-set ruler                  " show the cursor position all the time
-set showcmd                " display incomplete commands
-set incsearch              " do incremental searching
-set laststatus=2           " Always display the status line
-set autowrite              " Automatically :write before running commands
-set clipboard=unnamed      " Fix Sierra quirks
+set ruler             " show the cursor position all the time
+set showcmd           " display incomplete commands
+set incsearch         " do incremental searching
+set laststatus=2      " Always display the status line
+set autowrite         " Automatically :write before running commands
+set clipboard=unnamed " Fix Sierra quirks
 set clipboard+=unnamedplus "
 set relativenumber         " Always use relative numbers
 
@@ -59,6 +59,9 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " Open TagBar for supported files
+  " autocmd FileType * nested :call tagbar#autoopen(0)
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
@@ -211,6 +214,8 @@ nnoremap gs :Gstatus<CR>
 nnoremap gc :Gcommit<CR>
 nnoremap gbr :Gbrowse<CR>
 nnoremap gco :Git checkout
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>cc :CodeQueryMenu Unite Magic<CR>
 vnoremap // y/<C-R>"<CR>
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
@@ -218,14 +223,16 @@ nmap ,cl :let @*=expand("%:p")<CR>
 " Spaces and indents
 let g:indentLine_color_term = 239
 
-" Airline
+" Plugins conf
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 let g:airline_theme='tomorrow'
+let g:tagbar_width = 60
 
 " Language-specifics
 " Ruby
 au FileType ruby set iskeyword+=?
 au FileType ruby set iskeyword+=!
-au FileType ruby nnoremap nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
+au FileType ruby nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
 au FileType ruby nnoremap <leader>fc :Ag! 'class <cword>'.<CR>
 
 " Javascript

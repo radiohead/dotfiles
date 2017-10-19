@@ -1,17 +1,15 @@
 # Unix
-alias ll="ls -al"
+alias ls="exa --group-directories-first"
+alias ll="ls -la"
 alias ln="ln -v"
+alias lt="ls --tree"
+alias find="fd"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias ag='ag --path-to-agignore ~/.agignore'
-
-# Bundler
-alias b="bundle"
 
 # Rails
 alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
-alias s="rspec"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -20,6 +18,9 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias zshconfig="nvim ~/.zshrc.local"
 alias vimconfig="nvim ~/.vimrc.local"
 alias tmuxconfig="nvim ~/.tmux.conf.local"
+alias gosrc="cd $GOPATH/src"
+alias go="richgo"
+alias docker-stopall='docker ps | cut -f1 -d " " | sed -e 1d | xargs docker stop'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

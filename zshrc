@@ -40,19 +40,15 @@ _load_settings() {
 _load_settings "$HOME/.zsh/configs"
 
 # Oh My ZSH
-plugins=(rails jira)
 export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# SCM Breeze
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+# profile
+[[ -f ~/.profile ]] && source ~/.profile
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-
-# profile
-[[ -f ~/.profile ]] && source ~/.profile
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

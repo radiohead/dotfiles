@@ -15,6 +15,7 @@
   pf = push --force-with-lease
   st = status
   br = branch
+  psu = !git push --set-upstream origin `git symbolic-ref --short HEAD`
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input

@@ -14,6 +14,7 @@ set autowrite         " Automatically :write before running commands
 set clipboard=unnamed " Fix Sierra quirks
 set clipboard+=unnamedplus "
 set relativenumber         " Always use relative numbers
+set statusline+=%{gutentags#statusline()}
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
@@ -59,6 +60,9 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " Open TagBar for supported files
+  " autocmd FileType * nested :call tagbar#autoopen(0)
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
@@ -77,15 +81,14 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
+if executable('rg')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=rg\ --nogroup
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'rg -l --files %s'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " rg is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
@@ -178,15 +181,15 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/tmp/*,*/node_m
 set lazyredraw
 set ttyfast
 
-" Search
-ca Ag Ag!
-
 " Ruler
 set colorcolumn=120
 
 " Colors
-set background=dark
-colorscheme Tomorrow-Night
+" Access colors present in 256 colorspace
+set background="dark"
+colorscheme base16-eighties
+set termguicolors
+
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
@@ -206,30 +209,38 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 nnoremap <C-p> :CtrlP<CR>
 vnoremap <C-r> :%s/<c-r>=GetVisual()<cr>/
 nnoremap ft :CtrlPBufTag<CR>
-nnoremap fi :Ag! '<cword>'.<CR>
+nnoremap fi :Rg '<cword>'.<CR>
 nnoremap gs :Gstatus<CR>
 nnoremap gc :Gcommit<CR>
 nnoremap gbr :Gbrowse<CR>
 nnoremap gco :Git checkout
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>cc :CodeQueryMenu Unite Magic<CR>
 vnoremap // y/<C-R>"<CR>
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
 
-" Spaces and indents
+" Spaces and indents and linting
 let g:indentLine_color_term = 239
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake
 
-" Airline
-let g:airline_theme='tomorrow'
+" Plugins conf
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:airline_theme='base16_eighties'
+let g:tagbar_width = 60
 
 " Language-specifics
 " Ruby
 au FileType ruby set iskeyword+=?
 au FileType ruby set iskeyword+=!
-au FileType ruby nnoremap <leader>fd :Ag! 'def <cword>'.<CR>
-au FileType ruby nnoremap <leader>fc :Ag! 'class <cword>'.<CR>
+au FileType ruby nnoremap <leader>fd :Rg 'def <cword>'.<CR>
+au FileType ruby nnoremap <leader>fc :Rg 'class <cword>'.<CR>
 
-" Javascript
-let g:jsx_ext_required = 0
+" Gutentags
+let g:gutentags_project_info = []
+let g:gutentags_ctags_executable_javascript = 'jsctags'
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
@@ -272,3 +283,17 @@ function! GetVisual() range
   return escaped_selection
 endfunction
 
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/Users/igors/.nvm/versions/node/v8.4.0/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'javascript.jsx': ['/Users/igors/.nvm/versions/node/v8.4.0/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>

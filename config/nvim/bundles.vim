@@ -30,13 +30,9 @@ call plug#begin('~/.vim/bundle')
 Plug 'christoomey/vim-run-interactive'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'slim-template/vim-slim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-bundler'
@@ -44,12 +40,10 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -59,10 +53,37 @@ Plug 'tpope/vim-rbenv'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'mkitt/tabline.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'rhysd/vim-gfm-syntax'
+Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'neomake/neomake'
+Plug 'jiangmiao/auto-pairs'
+Plug 'chriskempson/base16-vim'
+Plug 'fatih/vim-go'
+
+" 'Modes'
+Plug 'moll/vim-node'
+Plug 'tpope/vim-rails'
+
+" Syntax / language support
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
+
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" (Optional) Multi-entry selection UI.
+" Plug 'junegunn/fzf'
+" (Optional) Multi-entry selection UI.
+" Plug 'Shougo/denite.nvim'
+
+" (Optional) Completion integration with deoplete.
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" (Optional) Completion integration with nvim-completion-manager.
+" Plug 'roxma/nvim-completion-manager'
+
+" (Optional) Showing function signature and inline doc.
+" Plug 'Shougo/echodoc.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
