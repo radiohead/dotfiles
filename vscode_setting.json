@@ -1,0 +1,74 @@
+{
+    // Telemetry settings
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    // Window settings
+    "window.title": "${rootName}",
+    "window.zoomLevel": 0,
+    "window.nativeTabs": true,
+    // Workbench settings
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Base16 Dark Eighties",
+    "workbench.fontAliasing": "antialiased",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    // Editor settings
+    "editor.fontSize": 15,
+    "editor.fontFamily": "Monaco, 'Courier New', monospace",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.lineNumbers": "relative",
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        120
+    ],
+    // Explorer settings
+    "explorer.confirmDelete": false,
+    // Terminal settings
+    "terminal.integrated.fontSize": 15,
+    // Files settings
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/.idea": true
+    },
+    "files.associations": {
+        "*.tf": "terraform",
+        "*.tpl": "swig"
+    },
+    // Git settings
+    "git.autofetch": true,
+    "git.enableCommitSigning": true,
+    // Gitlens settings
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "explorer",
+    "gitlens.views.lineHistory.location": "explorer",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "gitlens.codeLens.enabled": false,
+    // Golang settings
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "go.autocompleteUnimportedPackages": true,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true, // add parameter placeholders when completing a function
+        // Experimental settings
+        "completeUnimported": true, // autocomplete unimported packages
+        "watchFileChanges": true, // watch file changes outside of the editor
+        "deepCompletion": true // enable deep completion
+    }
+}
