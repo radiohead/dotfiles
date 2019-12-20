@@ -61,6 +61,7 @@ Plug 'neomake/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'chriskempson/base16-vim'
 Plug 'fatih/vim-go'
+Plug 'rking/ag.vim'
 
 " 'Modes'
 Plug 'moll/vim-node'
@@ -69,8 +70,6 @@ Plug 'tpope/vim-rails'
 " Syntax / language support
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
-
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " (Optional) Multi-entry selection UI.
 " Plug 'junegunn/fzf'

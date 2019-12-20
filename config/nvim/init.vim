@@ -286,6 +286,8 @@ endfunction
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+" 'javascript': ['/Users/igors/.nvm/versions/node/v8.4.0/bin/flow-language-server', '--stdio', '--try-flow-bin'],
+" 'javascript.jsx': ['/Users/igors/.nvm/versions/node/v8.4.0/bin/flow-language-server', '--stdio', '--try-flow-bin'],
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['/Users/igors/.nvm/versions/node/v8.4.0/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
     \ 'javascript.jsx': ['/Users/igors/.nvm/versions/node/v8.4.0/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],

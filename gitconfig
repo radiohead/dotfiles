@@ -22,9 +22,10 @@
 [merge]
   ff = only
   conflictstyle = diff3
-  tool = fugitive
+  tool = vim
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [color]
   ui = auto
 [fetch]
@@ -35,5 +36,5 @@
   path = ~/.gitconfig.local
 [mergetool]
   prompt = false
-[mergetool "fugitive"]
-  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+[mergetool "vim"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"

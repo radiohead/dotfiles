@@ -57,6 +57,7 @@ Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'scrooloose/nerdtree'
 
 " 'Modes'
 Plug 'moll/vim-node'
