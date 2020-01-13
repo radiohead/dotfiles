@@ -165,7 +165,8 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 
 " Always use vertical diffs
-set diffopt+=vertical
+" TODO: for some reason this doesn't work in latest VIM
+" set diffopt+=vertical
 
 " Common
 set vb                  " Disable audio bell
