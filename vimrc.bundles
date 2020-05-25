@@ -32,7 +32,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'slim-template/vim-slim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-bundler'
@@ -57,7 +57,11 @@ Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'scrooloose/nerdtree'
+Plug 'neomake/neomake'
+Plug 'jiangmiao/auto-pairs'
+Plug 'chriskempson/base16-vim'
+Plug 'fatih/vim-go'
+Plug 'rking/ag.vim'
 
 " 'Modes'
 Plug 'moll/vim-node'
@@ -67,9 +71,18 @@ Plug 'tpope/vim-rails'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 
-" Completion
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'jiangmiao/auto-pairs'
+" (Optional) Multi-entry selection UI.
+" Plug 'junegunn/fzf'
+" (Optional) Multi-entry selection UI.
+" Plug 'Shougo/denite.nvim'
+
+" (Optional) Completion integration with deoplete.
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" (Optional) Completion integration with nvim-completion-manager.
+" Plug 'roxma/nvim-completion-manager'
+
+" (Optional) Showing function signature and inline doc.
+" Plug 'Shougo/echodoc.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
