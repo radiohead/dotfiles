@@ -21,6 +21,7 @@ alias tmuxconfig="nvim ~/.tmux.conf.local"
 alias gosrc="cd $GOPATH/src"
 alias docker-stopall='docker ps | cut -f1 -d " " | sed -e 1d | xargs docker stop'
 alias git-cleanup='git branch --merged | grep -v -emaster -e* | xargs git branch -d'
+alias cvlc='vlc -Idummy --play-and-exit'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
