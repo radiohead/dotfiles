@@ -8,20 +8,16 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
-# Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
-
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Aliases
-alias zshconfig="nvim ~/.zshrc.local"
-alias vimconfig="nvim ~/.vimrc.local"
-alias tmuxconfig="nvim ~/.tmux.conf.local"
+alias zshconfig="vim ~/.zshrc.local"
+alias vimconfig="vim ~/.vimrc.local"
+alias tmuxconfig="vim ~/.tmux.conf.local"
 alias gosrc="cd $GOPATH/src"
 alias docker-stopall='docker ps | cut -f1 -d " " | sed -e 1d | xargs docker stop'
 alias git-cleanup='git branch --merged | grep -v -emaster -e* | xargs git branch -d'
-alias cvlc='vlc -Idummy --play-and-exit'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
