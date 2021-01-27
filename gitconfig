@@ -26,6 +26,7 @@
   tool = vim
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
 [color]
   ui = auto
 [fetch]
