@@ -1,3 +1,0 @@
-function git-cleanup() {
-  git branch --merged | sed '$d' | xargs git branch -d
-}

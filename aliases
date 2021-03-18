@@ -3,7 +3,6 @@ alias le="exa --group-directories-first"
 alias ll="ls -la"
 alias ln="ln -v"
 alias lt="ls --tree"
-# alias find="fd"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
@@ -11,13 +10,28 @@ alias v="$VISUAL"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# Aliases
+# Configs
 alias zshconfig="vim ~/.zshrc.local"
 alias vimconfig="vim ~/.vimrc.local"
 alias tmuxconfig="vim ~/.tmux.conf.local"
+
+# Golang
 alias gosrc="cd $GOPATH/src"
+
+# Docker
 alias docker-stopall='docker ps | cut -f1 -d " " | sed -e 1d | xargs docker stop'
-alias git-cleanup='git branch --merged | grep -v -emaster -e* | xargs git branch -d'
+
+# k8s
+alias k='kubectl'
+alias kns='kubectl ns'
+alias kcx='kubectl ctx'
+alias kpods='kubectl get pods'
+alias kdeps='kubectl get deployments'
+alias kstat='kubectl get statefulsets'
+alias kdaem='kubectl get daemonsets'
+alias kingr='kubectl get ingress'
+alias kserv='kubectl get services'
+alias kconf='kubectl get configmaps'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

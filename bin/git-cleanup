@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+PRIMARY_BRANCH='master'
+if [ -n "$(git branch -l main)" ]; then
+  PRIMARY_BRANCH=main
+fi
+
+git checkout $PRIMARY_BRANCH
+git pull
+git remote | xargs -n1 git remote prune
+git branch --merged | grep -v $PRIMARY_BRANCH | grep -v '[*]' | xargs -r git branch -d
+git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $PRIMARY_BRANCH $branch) && [[ $(git cherry $PRIMARY_BRANCH $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
