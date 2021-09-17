@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+set +e
+
+# Delete old image versions
+
+images=$(docker image ls | tail -n +2 | awk '{print $1}' | uniq)
+
+for image in ${images}; do
+  echo "Cleaning up ${image}..."
+  docker image ls | grep "${image}" | tail -n +2 | awk '{print $3}' | xargs docker rmi -f
+done
+
+# Prune everything else
+
+docker system prune -f
+

@@ -1,5 +1,6 @@
 # Unix
 alias le="exa --group-directories-first"
+alias ls="ls --color=auto"
 alias ll="ls -la"
 alias ln="ln -v"
 alias lt="ls --tree"
