@@ -44,6 +44,9 @@ export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# GPG TTY fix
+export GPG_TTY=$(tty)
+
 # profile
 [[ -f ~/.profile ]] && source ~/.profile
 
