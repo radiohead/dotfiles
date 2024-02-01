@@ -190,7 +190,7 @@ set colorcolumn=120
 
 " Colors
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow-night
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
