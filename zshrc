@@ -39,6 +39,9 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+# Make sure completions work
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # Oh My ZSH
 export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh

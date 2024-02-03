@@ -39,15 +39,14 @@
 [include]
   path = ~/.gitconfig.local
 [merge]
-  tool = vscode
+  tool = vimdiff
   conflictstyle = diff3
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
+[mergetool]
+  prompt = false
 [diff]
-  tool = vscode
-  colorMoved = default
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  tool = vimdiff
+[difftool]
+  prompt = false
 [url "git://"]
   insteadOf = https://
 [url "git@github.com:"]
