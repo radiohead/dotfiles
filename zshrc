@@ -42,6 +42,9 @@ _load_settings "$HOME/.zsh/configs"
 # Make sure completions work
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+# Go path will always be here
+export GOPATH="${HOME}/Code/go"
+
 # Oh My ZSH
 export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
