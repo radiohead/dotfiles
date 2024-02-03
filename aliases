@@ -36,5 +36,8 @@ alias kingr='kubectl get ingress'
 alias kserv='kubectl get services'
 alias kconf='kubectl get configmaps'
 
+# Rand
+alias c='cd $HOME/Code'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
