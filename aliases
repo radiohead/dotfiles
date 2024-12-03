@@ -6,7 +6,8 @@ alias la="ls -la"
 alias ln="ln -v"
 alias lt="ls --tree"
 alias mkdir="mkdir -p"
-alias udate="date -u --rfc-3339=seconds | sed 's/ /T/'"
+alias udate='date -u +"%Y-%m-%dT%H:%M:%SZ"'
+
 alias e="$EDITOR"
 alias v="$VISUAL"
 

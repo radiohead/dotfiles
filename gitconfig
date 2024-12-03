@@ -5,6 +5,9 @@
   rebase = true
 [push]
   default = simple
+[diff]
+  tool = difftastic
+  external = difft
 [difftool]
   prompt = false
 [alias]
@@ -22,11 +25,12 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-  pager = delta
 [merge]
   ff = only
+  tool = vimdiff
   conflictstyle = diff3
-  tool = vim
+[mergetool]
+  prompt = false
 [commit]
   template = ~/.gitmessage
   gpgsign = true
@@ -38,21 +42,10 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[merge]
-  tool = vimdiff
-  conflictstyle = diff3
-[mergetool]
-  prompt = false
-[diff]
-  tool = vimdiff
-[difftool]
-  prompt = false
-[url "git://"]
-  insteadOf = https://
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true  # use n and N to move between diff sections
-  side-by-side = true
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
+[url "ssh://git@github.com/"]
+ insteadOf = https://github.com/
+

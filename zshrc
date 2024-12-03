@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
@@ -45,10 +52,25 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Go path will always be here
 export GOPATH="${HOME}/Code/go"
 
+# Ensure PATH has GOPATH
+export PATH="${PATH}:${GOPATH}/bin"
+
 # Oh My ZSH
-export ZSH_THEME="robbyrussell"
+plugins=(
+  kube-ps1
+)
+
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH=$HOME/.oh-my-zsh
+
 source $ZSH/oh-my-zsh.sh
+
+# PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
+# export KUBE_PS1_PREFIX="<"
+export KUBE_PS1_SYMBOL_ENABLE=false
+# export KUBE_PS1_SEPARATOR=""
+export KUBE_PS1_DIVIDER=" > "
+# export KUBE_PS1_SUFFIX=">"
 
 # GPG TTY fix
 export GPG_TTY=$(tty)
@@ -62,3 +84,7 @@ export GPG_TTY=$(tty)
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
