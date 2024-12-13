@@ -55,3 +55,6 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# Fix GPG TTY overwriting
+export GPG_TTY=`tty`
+
