@@ -13,4 +13,7 @@ tmp/**/*
 *.pyc
 .idea/
 .vscode/
+.claude/
+# Temp, consider removing
+CLAUDE.md
 
