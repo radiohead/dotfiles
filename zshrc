@@ -3,6 +3,9 @@ if [[ "$TERM_PROGRAM" == "vscode" || "$TERM_PROGRAM" == "cursor" ]]; then
   return
 fi
 
+# Fix GPG TTY overwriting
+export GPG_TTY=`tty`
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -65,3 +68,8 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# powerlevel10k shell
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# SCM Breeze
+[[ ! -f ~/.scm_breeze/scm_breeze.sh ]] || source ~/.scm_breeze/scm_breeze.sh

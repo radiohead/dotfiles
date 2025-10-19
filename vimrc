@@ -151,6 +151,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
+" TODO: figure out a better way for this
+let g:gutentags_ctags_executable = '/opt/homebrew/bin/ctags'
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
